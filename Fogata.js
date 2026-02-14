@@ -5,6 +5,7 @@ const startBtn = document.getElementById("start-btn");
 const subtitleOverlay = document.getElementById("subtitle-overlay");
 const videoSource = video.querySelector("source");
 const videoCutoffTime = 35.0;
+const subtitleMiddleTime = 36.0;
 let videoDisabled = false;
 
 const subtitles = [
@@ -67,6 +68,7 @@ function updateSubtitleOverlay() {
   if (time >= videoCutoffTime) {
     disableBackgroundVideo();
   }
+  document.body.classList.toggle("subtitle-middle", time >= subtitleMiddleTime);
   const isFocusWindow = time >= subtitleFocusStart && time <= subtitleFocusEnd;
   document.body.classList.toggle("lyric-focus", isFocusWindow);
 
